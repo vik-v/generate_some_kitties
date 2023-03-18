@@ -23,9 +23,11 @@ INIT_DATA = {
              'Лапочка', 'Уголек', 'Царапка', 'Джонни', 'Борис', 'Пушистик',
              'Геродот'],
 
-    'color': ['Белый', 'Серый', 'Черный', 'Рыжий', 'Шоколадный', 'Бежевый',
-              'Тигровый', 'Голубой', 'Коричневый', 'Желто-черный',
-              'Пятнистый',],
+    'color': (('Gray', 'Серый'),
+              ('Black', 'Чёрный'),
+              ('White', 'Белый'),
+              ('Ginger', 'Рыжий'),
+              ('Mixed', 'Смешанный')),
 
     'birth_year': (2010, 2023),
     'owner': 1,
@@ -45,6 +47,7 @@ def generate_data(sprint_lesson: int = 0,
         0: 'Спринт 8/18 → Тема 1/3: Django Rest Framework → Урок 5/15'
         1: 'Спринт 8/18 → Тема 1/3: Django Rest Framework → Урок 9/15'
         2: 'Спринт 8/18 → Тема 1/3: Django Rest Framework → Урок 10/15'
+        3: 'Спринт 8/18 → Тема 1/3: Django Rest Framework → Урок 12/15'
     """
     cats = []
 
@@ -89,6 +92,22 @@ def generate_data(sprint_lesson: int = 0,
                     ]
                 }
             )
+
+    if sprint_lesson == 3:
+        for _ in range(number_of_cats):
+            cats.append(
+                {
+                    'name': random.choice(INIT_DATA['name']),
+                    'color': random.choice(INIT_DATA['color'])[0],
+                    'birth_year': random.randint(INIT_DATA['birth_year'][0],
+                                                 INIT_DATA['birth_year'][1]),
+                    'owner': INIT_DATA['owner'],
+                    'achievements': [
+                        {'achievement_name':
+                         random.choice(INIT_DATA['achievements'])}
+                    ]
+                }
+            )
     return cats
 
 
@@ -116,10 +135,20 @@ def deploy(endpoint: str, cats: list) -> None:
         logging.error(e)
 
 
+def cleanup_db(endpoint: str) -> None:
+    """Delete all entries from data base."""
+    response = requests.get(ENDPOINT)
+    entries = []
+    for entry in response.json():
+        entries.append(entry.get('id'))
+    for entry in entries:
+        requests.delete(endpoint + str(entry))
+
+
 def main() -> None:
     """Main function."""
     if check_server(ENDPOINT):
-        data = generate_data(2)
+        data = generate_data(3)
         deploy(ENDPOINT, data)
 
 
