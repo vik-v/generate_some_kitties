@@ -106,8 +106,9 @@ Also, you can specify number of kitties to generate by using [`-n` |  `--number-
 ```sh
 python3 gensk.py -g -n 1000
 ```
-#### Check server response
 It will generate one thousand of kitties. What a pretty result!
+
+### Check server response
 Checking endpoint availability [`-c` |  `--check-server`]
 ```sh
 python3 gensk.py -c
@@ -126,7 +127,7 @@ From the bottom of my heart i’ll had to say, that if you decide to genocide fl
 ```sh
 python3 gensk.py -x
 ```
-It will totaly remove all kitties from you server. Burn in Hell, scratchy basters!!
+It will totally remove all kitties from you server. Burn in Hell, scratchy basters!!
 
 ### Specifying custom URL or URL part
 For [`-c` | `--check-server`], [`-d` | `--deploy`], [`-x` | `--cleanup-db`] you may specify:
