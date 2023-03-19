@@ -108,7 +108,7 @@ python3 gensk.py -g -n 1000
 ```
 It will generate one thousand of kitties. What a pretty result!
 
-#### Check server response
+### Check server response
 Checking url availability [`-c` |  `--check-server`]
 ```sh
 python3 gensk.py -c
