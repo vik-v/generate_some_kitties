@@ -109,7 +109,7 @@ python3 gensk.py -g -n 1000
 It will generate one thousand of kitties. What a pretty result!
 
 ### Check server response
-Checking endpoint availability [`-c` |  `--check-server`]
+Checking url availability [`-c` |  `--check-server`]
 ```sh
 python3 gensk.py -c
 ```
@@ -144,7 +144,7 @@ python3 gensk.py -x -a localhost
 ```
 To specify fully URL, use [`-u` | `--url`]
 ```sh
-python3 gensk.py -d -n 5 -u http://scratchy-baster9000.pythonanywhere.com/cats/
+python3 gensk.py -d -n 5 -u http://scratchy-baster9000.pythonanywhere.com:1234/cats/
 ```
 ## License
 
