@@ -106,9 +106,10 @@ Also, you can specify number of kitties to generate by using [`-n` |  `--number-
 ```sh
 python3 gensk.py -g -n 1000
 ```
-#### Check server response
 It will generate one thousand of kitties. What a pretty result!
-Checking endpoint availability [`-c` |  `--check-server`]
+
+#### Check server response
+Checking url availability [`-c` |  `--check-server`]
 ```sh
 python3 gensk.py -c
 ```
