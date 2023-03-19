@@ -127,7 +127,7 @@ From the bottom of my heart i’ll had to say, that if you decide to genocide fl
 ```sh
 python3 gensk.py -x
 ```
-It will totaly remove all kitties from you server. Burn in Hell, scratchy basters!!
+It will totally remove all kitties from you server. Burn in Hell, scratchy basters!!
 
 ### Specifying custom URL or URL part
 For [`-c` | `--check-server`], [`-d` | `--deploy`], [`-x` | `--cleanup-db`] you may specify:
