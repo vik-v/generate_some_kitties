@@ -179,6 +179,7 @@ def url_validator(url: str) -> bool:
 
 
 def pretty_json(data: list) -> json:
+    """Prepare list to json."""
     return json.dumps(data,
                       sort_keys=False,
                       indent=4,
