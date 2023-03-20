@@ -5,7 +5,8 @@ import random
 import sys
 from http import HTTPStatus
 from logging import DEBUG, ERROR, INFO
-from urllib.parse import urlparse
+from typing import Tuple
+from urllib.parse import ParseResult, urlparse
 
 import requests
 
@@ -162,7 +163,7 @@ logging.basicConfig(
 )
 
 
-def url_validator(url: str) -> bool:
+def url_validator(url: str) -> Tuple[bool, ParseResult, str]:
     """Simple URL validator."""
     try:
         if not url.endswith('/'):
